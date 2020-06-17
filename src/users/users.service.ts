@@ -17,4 +17,8 @@ export class UsersService {
     user.password = await argon2.hash(password);
     return this.usersRepository.save(user);
   }
+
+  async findOne(email: string): Promise<User> {
+    return await this.usersRepository.findOne({ email });
+  }
 }

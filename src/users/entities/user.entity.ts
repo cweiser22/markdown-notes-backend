@@ -6,12 +6,12 @@ import {
 } from 'typeorm';
 import { Exclude } from 'class-transformer';
 
-@Entity()
+@Entity({ name: 'accounts' })
 export class User {
-  @PrimaryGeneratedColumn()
+  @PrimaryGeneratedColumn('uuid')
   id: number;
 
-  @Column()
+  @Column({ unique: true })
   email: string;
 
   @CreateDateColumn()
